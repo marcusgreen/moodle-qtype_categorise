@@ -23,7 +23,7 @@
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$string['pluginname'] = 'categorise';
+$string['pluginname'] = 'Categorise';
 $string['pluginname_help'] = 'Create a categorise question type with insert question description here.';
 $string['pluginname_link'] = 'question/type/categorise';
 $string['pluginnameadding'] = 'Adding a categorise question';
