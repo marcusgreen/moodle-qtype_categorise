@@ -29,9 +29,9 @@ defined('MOODLE_INTERNAL') || die();
 
 
 /**
- * Checks file access for category questions.
- * @package  qtype_category
- * @category files
+ * Checks file access for categorise questions.
+ * @package  qtype_categorise
+ * @categorise files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
  * @param stdClass $context context object

@@ -17,15 +17,14 @@
 /**
  * Multi-answer question type upgrade code.
  *
- * @package    qtype
- * @subpackage category
+ * @package    qtype_categorise
  * @copyright  2912 Marcus Green
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Upgrade code for the category question type.
+ * Upgrade code for the categorise question type.
  * A selection of things you might want to do when upgrading
  * to a new version. This file is generally not needed for
  * the first release of a question type.

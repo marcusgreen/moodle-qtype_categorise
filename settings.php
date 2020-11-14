@@ -17,9 +17,8 @@
 /**
  * Plugin administration pages are defined here.
  *
- * @package     
- * @category    
- * @copyright   
+ * @package   qtype_categorise
+ * @copyright  Marcus Green 2020
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

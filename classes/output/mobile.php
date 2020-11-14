@@ -27,16 +27,16 @@ namespace qtype_category\output;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Mobile output class for category question type
+ * Mobile output class for categorise question type
  *
- * @package    qtype_category
+ * @package    qtype_categorise
  * @copyright  20XX YOUR NAME
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class mobile {
 
     /**
-     * Returns the category question type for the quiz the mobile app.
+     * Returns the categorise question type for the quiz the mobile app.
      *
      * @return void
      */
@@ -46,10 +46,10 @@ class mobile {
             'templates' => [
                 [
                     'id' => 'main',
-                    'html' => file_get_contents($CFG->dirroot .'/question/type/category/mobile/qtype-category.html')
+                    'html' => file_get_contents($CFG->dirroot .'/question/type/categorise/mobile/qtype-categoirse.html')
                     ]
             ],
-            'javascript' => file_get_contents($CFG->dirroot . '/question/type/category/mobile/mobile.js')
+            'javascript' => file_get_contents($CFG->dirroot . '/question/type/categorise/mobile/mobile.js')
         ];
     }
 }
