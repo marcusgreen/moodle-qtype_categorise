@@ -38,11 +38,11 @@ class qtype_categorise_edit_form extends question_edit_form {
     protected function definition_inner($mform) {
       global $PAGE,$OUTPUT;
       $PAGE->requires->js_call_amd('qtype_categorise/questionedit', 'init');
-     // $mform->addElement('header','categories','Categories');
+      $mform->addElement('header','categories','Categories');
 
-        $html = $OUTPUT->render_from_template('qtype_categorise/fields', ['firstname' => 'marcus']);
-         $musform[] = $mform->createElement('html',$html);
-        $mform->addGroup($musform,'', [], false);
+      $html = $OUTPUT->render_from_template('qtype_categorise/fields', ['firstname' => 'marcus']);
+      $musform[] = $mform->createElement('html',$html);
+      $mform->addGroup($musform,'', '', false);
 
         $this->add_combined_feedback_fields(true);
         // Adds hinting features.
