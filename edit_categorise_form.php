@@ -38,6 +38,14 @@ class qtype_categorise_edit_form extends question_edit_form {
     protected function definition_inner($mform) {
         global $PAGE, $OUTPUT;
         $PAGE->requires->js_call_amd('qtype_categorise/questionedit', 'init');
+
+        $mform->removeelement('questiontext');
+        $qt = $mform->createElement('editor', 'questiontext',
+            get_string('questiontext', 'question'), array('rows' => 5),
+        $this->editoroptions);
+
+        $this->insert_element_before($mform, $qt,'defaultmark');
+
         $mform->addElement('header', 'categories', 'Categories');
         $mform->setExpanded('categories', true);
 
@@ -52,7 +60,26 @@ class qtype_categorise_edit_form extends question_edit_form {
         // Adds hinting features.
         $this->add_interactive_settings(true, true);
     }
-
+    /**
+     * Insert element after another element
+     * @param $element
+     * @param $namebefore
+     * @return html_quickform_element|object
+     */
+    public function insert_element_before($mform, $element, $namebefore) {
+        if (!$mform->elementExists($namebefore)) {
+            $error = $mform::raiseError(null, QUICKFORM_NONEXIST_ELEMENT, null, E_USER_WARNING, "Element '$namebefore' does not exist in HTML_QuickForm::insertElementAfter()", 'HTML_QuickForm_Error', true);
+            return $error;
+        }
+        $namebeforeelementindex = $mform->_elementIndex[$namebefore];
+        $nextelement = \array_keys($mform->_elementIndex, $namebeforeelementindex + 1);
+        if (isset($nextelement[0])) {
+            return $mform->insertElementBefore($element, $nextelement[0]);
+        } else {
+            // There is no next element, just add it to the end of the form.
+            return $mform->addElement($element);
+        }
+    }
     protected function data_preprocessing($question) {
         $question = parent::data_preprocessing($question);
         $question = $this->data_preprocessing_hints($question);
