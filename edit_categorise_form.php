@@ -40,11 +40,14 @@ class qtype_categorise_edit_form extends question_edit_form {
         $PAGE->requires->js_call_amd('qtype_categorise/questionedit', 'init');
 
         $mform->removeelement('questiontext');
+
         $qt = $mform->createElement('editor', 'questiontext',
             get_string('questiontext', 'question'), array('rows' => 5),
         $this->editoroptions);
 
         $this->insert_element_before($mform, $qt,'defaultmark');
+
+        $mform->removeelement('generalfeedback');
 
         $mform->addElement('header', 'categories', 'Categories');
         $mform->setExpanded('categories', true);
@@ -56,6 +59,11 @@ class qtype_categorise_edit_form extends question_edit_form {
         $musform[] = $mform->createElement('html', $html);
         $mform->addGroup($musform, '', '', false);
 
+        $mform->addElement('header', 'feedback', 'General Feedback');
+
+        $mform->addElement('editor', 'generalfeedback',
+        'General feedback', array('rows' => 5),
+            $this->editoroptions);
         $this->add_combined_feedback_fields(true);
         // Adds hinting features.
         $this->add_interactive_settings(true, true);
